@@ -15,17 +15,7 @@ namespace TPWeb_equipo_16A.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Voucher voucher = new Voucher();
 
-            VoucherManager voucherManager = new VoucherManager();
-
-            string cod = "@CodigoVoucher";
-
-            voucher.CodigoVoucher = cod;
-
-            //voucherManager.VerificarCodigoVoucher(cod);
-            //voucherManager.Crear(voucher);
-            //voucherManager.Eliminar(cod);
 
         }
     }
