@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Business.Interfaces;
+using Business.Managers;
+using Domain.Entities;
+using TPWeb_equipo_16A.Domain.Entities;
 
 namespace TPWeb_equipo_16A.Pages
 {
@@ -11,6 +15,17 @@ namespace TPWeb_equipo_16A.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Voucher voucher = new Voucher();
+
+            VoucherManager voucherManager = new VoucherManager();
+
+            string cod = "@CodigoVoucher";
+
+            voucher.CodigoVoucher = cod;
+
+            //voucherManager.VerificarCodigoVoucher(cod);
+            //voucherManager.Crear(voucher);
+            //voucherManager.Eliminar(cod);
 
         }
     }

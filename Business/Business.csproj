@@ -44,10 +44,12 @@
     <Compile Include="Dtos\ArticuloDTO.cs" />
     <Compile Include="Interfaces\ICrudRepository.cs" />
     <Compile Include="Interfaces\IImagenManager.cs" />
+    <Compile Include="Interfaces\IVoucher.cs" />
     <Compile Include="Managers\ArticuloManager.cs" />
     <Compile Include="Managers\CategoriaManager.cs" />
     <Compile Include="Managers\ImagenManager.cs" />
     <Compile Include="Managers\MarcaManager.cs" />
+    <Compile Include="Managers\VoucherManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
