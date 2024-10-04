@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Main.Master" AutoEventWireup="true" CodeBehind="checkVoucher.aspx.cs" Inherits="TPWeb_equipo_16A.Pages.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Main.Master" AutoEventWireup="true" CodeBehind="checkVoucher.aspx.cs" Inherits="TPWeb_equipo_16A.Pages.WebForm3"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
