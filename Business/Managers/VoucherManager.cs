@@ -80,7 +80,25 @@ namespace Business.Managers
 
         public bool CompletarVoucher()
         {
-            
+
+            string codigoVoucher = "Codigo02";
+            string idCliente = "1";
+            DateTime fecha = DateTime.Now;
+            string idArticulo = "2";
+
+            string query = "update Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo Where CodigoVoucher = @codigoVoucher";
+
+            SqlParameter[] parametro = new SqlParameter[]
+            {
+                new SqlParameter("@codigoVoucher", codigoVoucher),
+                new SqlParameter("@idCliente", idCliente),
+                new SqlParameter("@idArticulo", idArticulo)
+            };
+
+            var res = _dbManager.ExecuteNonQuery(query, parametro);
+
+            if (res == 0) return false;
+
             return true;
         }
 

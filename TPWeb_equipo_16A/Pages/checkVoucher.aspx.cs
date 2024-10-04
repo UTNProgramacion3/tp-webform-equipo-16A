@@ -13,6 +13,7 @@ namespace TPWeb_equipo_16A.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
         }
 
         protected void btnCargar_Click(object sender, EventArgs e)
