@@ -7,22 +7,19 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col">
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="txtNombre" placeholder="Ingrese Nombre...">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="txtApellido" placeholder="Ingrese Apellido...">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">DNI</label>
-            <input type="text" class="form-control" id="txtDNI" placeholder="Ingrese DNI...">
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Codigo de Voucher</label>
-            <input type="text" class="form-control" id="txtCodigoVoucher" placeholder="Ingrese su codigo de Voucher...">
-        </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Codigo de Voucher</label>
+                <input id="txtCodigoVoucher" type="text" runat="server" class="form-control" placeholder="Ingrese su codigo de Voucher...">
+            </div>
+            <div>
+                <asp:Button Text="Cargar" class="btn btn-primary" OnClick="btnCargar_Click" runat="server" />
+                <div id="successAlert" runat="server" class="alert alert-success" role="alert" visible="false">
+                    El codigo de Voucher fue asignado correctamente
+                </div>
+                <div id="failureAlert" runat="server" class="alert alert-danger" role="alert" visible="false">
+                    El codigo de Voucher es invalido o ya fue utilizado
+                </div>
+            </div>
         </div>
         <div class="col-3"></div>
     </div>

@@ -26,7 +26,7 @@ namespace Business.Managers
         public bool VerificarCodigoVoucher(string codigo)
         {
             
-            string query = "Select CodigoVoucher From Vouchers Where CodigoVoucher = @codigo AND IdCliente IS NOT NULL AND FechaCanje IS NOT NULL AND IdArticulo IS NOT NULL";
+            string query = "Select CodigoVoucher From Vouchers Where CodigoVoucher = @codigo AND IdCliente IS NULL AND FechaCanje IS NULL AND IdArticulo IS NULL";
 
             SqlParameter[] parametros = new SqlParameter[]
             {
@@ -70,6 +70,30 @@ namespace Business.Managers
                 {
                 new SqlParameter("@CodigoVoucher", cod)
                 };
+
+            var res = _dbManager.ExecuteNonQuery(query, parametro);
+
+            if (res == 0) return false;
+
+            return true;
+        }
+
+        public bool CompletarVoucher()
+        {
+
+            string codigoVoucher = "Codigo02";
+            string idCliente = "1";
+            DateTime fecha = DateTime.Now;
+            string idArticulo = "2";
+
+            string query = "update Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo Where CodigoVoucher = @codigoVoucher";
+
+            SqlParameter[] parametro = new SqlParameter[]
+            {
+                new SqlParameter("@codigoVoucher", codigoVoucher),
+                new SqlParameter("@idCliente", idCliente),
+                new SqlParameter("@idArticulo", idArticulo)
+            };
 
             var res = _dbManager.ExecuteNonQuery(query, parametro);
 

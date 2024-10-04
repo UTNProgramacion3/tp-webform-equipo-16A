@@ -15,6 +15,6 @@ namespace Business.Interfaces
 
         bool Eliminar(string v);
 
-
+        bool CompletarVoucher();
     }
 }
