@@ -26,7 +26,7 @@ namespace Business.Managers
         public bool VerificarCodigoVoucher(string codigo)
         {
             
-            string query = "Select CodigoVoucher From Vouchers Where CodigoVoucher = @codigo AND IdCliente IS NOT NULL AND FechaCanje IS NOT NULL AND IdArticulo IS NOT NULL";
+            string query = "Select CodigoVoucher From Vouchers Where CodigoVoucher = @codigo AND IdCliente IS NULL AND FechaCanje IS NULL AND IdArticulo IS NULL";
 
             SqlParameter[] parametros = new SqlParameter[]
             {
@@ -75,6 +75,12 @@ namespace Business.Managers
 
             if (res == 0) return false;
 
+            return true;
+        }
+
+        public bool CompletarVoucher()
+        {
+            
             return true;
         }
 
