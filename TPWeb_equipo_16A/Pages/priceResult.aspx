@@ -6,7 +6,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:Label Text="" runat="server" ID="PRUEBA" />
     <div class="container text-center">
         <div class="row">
             <div class="col"></div>
