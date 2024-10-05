@@ -60,22 +60,85 @@ namespace TPWeb_equipo_16A.Pages
         protected global::System.Web.UI.WebControls.Literal mensajeError;
 
         /// <summary>
-        /// participar_form control.
+        /// ingresar_datos_manual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl participar_form;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ingresar_datos_manual;
 
         /// <summary>
-        /// documento_validado control.
+        /// documentoCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox documento_validado;
+        protected global::System.Web.UI.WebControls.TextBox documentoCliente;
+
+        /// <summary>
+        /// nombreCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nombreCliente;
+
+        /// <summary>
+        /// apellidoCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox apellidoCliente;
+
+        /// <summary>
+        /// emailCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox emailCliente;
+
+        /// <summary>
+        /// direccionCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox direccionCliente;
+
+        /// <summary>
+        /// ciudadCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ciudadCliente;
+
+        /// <summary>
+        /// codigoPostalCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox codigoPostalCliente;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
         /// form_usuario_existente control.
@@ -87,13 +150,13 @@ namespace TPWeb_equipo_16A.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl form_usuario_existente;
 
         /// <summary>
-        /// documento control.
+        /// documento_validado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox documento;
+        protected global::System.Web.UI.WebControls.TextBox documento_validado;
 
         /// <summary>
         /// nombre control.

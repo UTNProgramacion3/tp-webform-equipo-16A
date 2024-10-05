@@ -13,7 +13,7 @@ using Utils.Interfaces;
 
 namespace Business.Managers
 {
-    public class ClienteManager : ICrudRepository<Cliente>, IClienteManager
+    public class ClienteManager : IClienteManager
     {
         private readonly DBManager _dbManager;
         private IMapper<Cliente> _mapper;
@@ -46,7 +46,7 @@ namespace Business.Managers
 
         public Cliente Crear(Cliente entity)
         {
-            string query = "INSERT INTO Cliente (Documento, Nombre, Apellido, Email, Direccion, Ciudad, CodigoPostal) VALUES (@Documento, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CodigoPostal)";
+            string query = "INSERT INTO Clientes (Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) VALUES (@Documento, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CP)";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -56,7 +56,7 @@ namespace Business.Managers
                 new SqlParameter("@Email", entity.Email),
                 new SqlParameter("@Direccion", entity.Direccion),
                 new SqlParameter("@Ciudad", entity.Ciudad),
-                new SqlParameter("@CodigoPostal", entity.CodigoPostal)
+                new SqlParameter("@CP", entity.CP)
             };
 
             var res = _dbManager.ExecuteNonQuery(query, parameters);

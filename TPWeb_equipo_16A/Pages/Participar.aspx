@@ -3,12 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<%-- Inicio número de DNI pre-validación: --%>
   <div class="col-md-4" runat="server" id="ingreso_dni_container">
     <label for="dni" class="form-label">Ingresá documento para comenzar...</label>
       <input type="number" class="form-control" id="documento_inicial" placeholder="xx.xxx.xxx">
    <asp:Button class="btn btn-primary" ID="dni" runat="server" Text="Ingresá tu documento" OnClick="ValidarDniIngresado" />
   </div>
+    <%-- Fin validación número de DNI --%>
 
+    <%-- Error en dni cargado: --%>
     <div id="failureCard" runat="server" class="card card-style body-card" visible="false">
     <div class="card-header header-failure-card-style">
         <div class="font-color">
@@ -22,31 +25,54 @@
         <p class="card-text">Por favor, vuelva a ingresar los datos para asignar el premio solicitado...</p>
     </div>
 </div>
+    <%-- Fin error en dni cargado --%>
 
-  <div class="col-md-4" id="participar_form" runat="server">
-      <div>
-        <label for="documento_validado" class="form-label">Documento</label>
-        <asp:TextBox ID="documento_validado" runat="server" CssClass="form-control" TextMode="Number" />
-        </div>
-      <div>
+    <%-- Inicio formulario para participar: --%>
+<div class="col-md-4" id="ingresar_datos_manual" runat="server">
+    <div>
+        <label for="documentoCliente" class="form-label">Documento</label>
+        <asp:TextBox ID="documentoCliente" runat="server" CssClass="form-control" TextMode="Number" />
+    </div>
+    <div>
         <label for="nombreCliente" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombreCliente" value="Mark" required>
-      </div>
-      <div>
-        <label for="validationCustom01" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="apellidoCliente" value="Mark" required>
-      </div>
-       <div class="col-12">
+        <asp:TextBox ID="nombreCliente" runat="server" CssClass="form-control" required="required" />
+    </div>
+    <div>
+        <label for="apellidoCliente" class="form-label">Apellido</label>
+        <asp:TextBox ID="apellidoCliente" runat="server" CssClass="form-control" required="required" />
+    </div>
+    <div>
+        <label for="emailCliente" class="form-label">Email</label>
+        <asp:TextBox ID="emailCliente" runat="server" CssClass="form-control" TextMode="Email" required="required" />
+    </div>
+    <div>
+        <label for="direccionCliente" class="form-label">Dirección</label>
+        <asp:TextBox ID="direccionCliente" runat="server" CssClass="form-control" required="required" />
+    </div>
+    <div>
+        <label for="ciudadCliente" class="form-label">Ciudad</label>
+        <asp:TextBox ID="ciudadCliente" runat="server" CssClass="form-control" required="required" />
+    </div>
+    <div>
+        <label for="codigoPostalCliente" class="form-label">Código Postal</label>
+        <asp:TextBox ID="codigoPostalCliente" runat="server" CssClass="form-control" TextMode="Number" required="required" />
+    </div>
+    <div class="col-12">
+        <asp:Button ID="btnSubmit" runat="server" Text="Enviar" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
+    </div>
+</div>
     
  </div>
   </div>
+    <%-- Fin formulario para participar --%>
 
+    <%-- Inicio formulario con datos pre-cargados: --%>
      <div id="form_usuario_existente" runat="server">
         <div class="container mt-5">
             <h2>Detalles del Cliente</h2>
             <div class="mb-3">
                 <label for="documento" class="form-label">Documento</label>
-                <asp:TextBox ID="documento" runat="server" CssClass="form-control" Text='<%# Bind("Documento") %>'  />
+                <asp:TextBox ID="documento_validado" runat="server" CssClass="form-control" Text='<%# Bind("Documento") %>'  />
             </div>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
@@ -73,6 +99,7 @@
                 <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" Text='<%# Bind("CodigoPostal") %>'  />
             </div>
         </div>
+         <%-- Fin formulario con datos pre-cargados --%>
     </div>
 
 </asp:Content>
