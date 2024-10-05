@@ -229,5 +229,14 @@ namespace TPWeb_equipo_16A.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox codigoPostal;
+
+        /// <summary>
+        /// confirmarYParticipar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirmarYParticipar;
     }
 }

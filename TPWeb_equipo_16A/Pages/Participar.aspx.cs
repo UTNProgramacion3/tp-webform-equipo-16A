@@ -59,7 +59,19 @@ namespace TPWeb_equipo_16A.Pages
             else
             {
                 ingresar_datos_manual.Visible = true;
+                documentoCliente.Text = documento_inicial.Text;
+                documentoCliente.Enabled = false;
+
             }
+        }
+
+        protected void ConfirmarDatosYParticipar(object sender, EventArgs e)
+        {
+            ingresar_datos_manual.Visible = false;
+            form_usuario_existente.Visible = false;
+
+
+            ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'priceResult.aspx'; }, 1000);", true);
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -77,7 +89,7 @@ namespace TPWeb_equipo_16A.Pages
 
             var res = _clienteManager.Crear(nuevoCliente);
 
-            if(res.Id == 0)
+            if(res.Documento == null)
             {
                 failureCard.Visible = true;
                 Mensaje.Text = "Hubo un error al cargar los datos";
@@ -86,6 +98,8 @@ namespace TPWeb_equipo_16A.Pages
                 ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Participar.aspx'; }, 3000);", true);
                 return;
             }
+
+          
         }
 
         private bool ValidarDni(string dni)

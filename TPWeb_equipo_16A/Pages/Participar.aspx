@@ -2,11 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div class="container mt-5">
+    <div class="row justify-content-center">
 
 <%-- Inicio número de DNI pre-validación: --%>
-  <div class="col-md-4" runat="server" id="ingreso_dni_container">
+  <div class="col-md-4 container" runat="server" id="ingreso_dni_container">
     <label for="dni" class="form-label">Ingresá documento para comenzar...</label>
-      <asp:TextBox  TextMode="Number" CssClass="form-control" ID="documento_inicial" placeholder="12345678" runat="server"/>
+      <asp:TextBox  TextMode="Number" CssClass="form-control mb-3" ID="documento_inicial" placeholder="12345678" runat="server"/>
    <asp:Button class="btn btn-primary" ID="dni" runat="server" Text="Ingresá tu documento" OnClick="ValidarDniIngresado" />
   </div>
     <%-- Fin validación número de DNI --%>
@@ -34,7 +36,9 @@
 
     <%-- Inicio formulario para participar: --%>
 <div class="col-md-4" id="ingresar_datos_manual" runat="server">
-    <div>
+    <div class="container mt-5">
+        <div>
+
         <label for="documentoCliente" class="form-label">Documento</label>
         <asp:TextBox ID="documentoCliente" runat="server" CssClass="form-control" />
     </div>
@@ -42,7 +46,7 @@
         <label for="nombreCliente" class="form-label">Nombre</label>
         <asp:TextBox ID="nombreCliente" runat="server" CssClass="form-control" required="required" />
     </div>
-    <div>s
+    <div>
         <label for="apellidoCliente" class="form-label">Apellido</label>
         <asp:TextBox ID="apellidoCliente" runat="server" CssClass="form-control" required="required" />
     </div>
@@ -103,8 +107,14 @@
                 <label for="codigoPostal" class="form-label">Código Postal</label>
                 <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" Text='<%# Bind("CodigoPostal") %>'  />
             </div>
+            <div class="col-12">
+    <asp:Button ID="confirmarYParticipar" runat="server" Text="Participar!" CssClass="btn btn-primary" OnClick="ConfirmarDatosYParticipar" />
+</div>
         </div>
          <%-- Fin formulario con datos pre-cargados --%>
+    </div>
+        </div>
+    </div>
     </div>
 
 </asp:Content>
