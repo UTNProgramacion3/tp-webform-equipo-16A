@@ -3,11 +3,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-  <div class="col-md-4" runat="server" id="DNI">
-    <label for="validationCustom01" class="form-label">Ingresá documento</label>
-    <input type="number" class="form-control" id="validationCustom01" placeholder="hola">
-   <asp:Button class="btn btn-primary" ID="btnClickMe" runat="server" Text="Ingresá tu documento" OnClick="handleParticipar" />
+  <div class="col-md-4" runat="server" id="ingreso_dni_container">
+    <label for="dni" class="form-label">Ingresá documento para comenzar...</label>
+      <input type="number" class="form-control" id="documento_inicial" placeholder="xx.xxx.xxx">
+   <asp:Button class="btn btn-primary" ID="dni" runat="server" Text="Ingresá tu documento" OnClick="ValidarDniIngresado" />
   </div>
+
+    <div id="failureCard" runat="server" class="card card-style body-card" visible="false">
+    <div class="card-header header-failure-card-style">
+        <div class="font-color">
+            <p>
+                <asp:Literal ID="Mensaje" runat="server" />
+            </p>
+        </div>
+    </div>
+    <div class="card-body body-failure-card-style">
+        <h5 class="card-title"><asp:Literal ID="mensajeError" runat="server" /></h5>
+        <p class="card-text">Por favor, vuelva a ingresar los datos para asignar el premio solicitado...</p>
+    </div>
+</div>
 
   <div class="col-md-4" id="participar_form" runat="server">
       <div>
@@ -23,61 +37,42 @@
         <input type="text" class="form-control" id="apellidoCliente" value="Mark" required>
       </div>
        <div class="col-12">
-     <%--<asp:Button class="btn btn-primary" type="button" runat="server">Participar!</asp:Button>--%>
+    
  </div>
   </div>
- <%-- <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Last name</label>
-    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-    <div class="valid-feedback">
-      Looks good!
+
+     <div id="form_usuario_existente" runat="server">
+        <div class="container mt-5">
+            <h2>Detalles del Cliente</h2>
+            <div class="mb-3">
+                <label for="documento" class="form-label">Documento</label>
+                <asp:TextBox ID="documento" runat="server" CssClass="form-control" Text='<%# Bind("Documento") %>'  />
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <asp:TextBox ID="nombre" runat="server" CssClass="form-control" Text='<%# Bind("Nombre") %>'  />
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <asp:TextBox ID="apellido" runat="server" CssClass="form-control" Text='<%# Bind("Apellido") %>'  />
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <asp:TextBox ID="email" runat="server" CssClass="form-control" Text='<%# Bind("Email") %>'  />
+            </div>
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <asp:TextBox ID="direccion" runat="server" CssClass="form-control" Text='<%# Bind("Direccion") %>'  />
+            </div>
+            <div class="mb-3">
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <asp:TextBox ID="ciudad" runat="server" CssClass="form-control" Text='<%# Bind("Ciudad") %>'  />
+            </div>
+            <div class="mb-3">
+                <label for="codigoPostal" class="form-label">Código Postal</label>
+                <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" Text='<%# Bind("CodigoPostal") %>'  />
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustomUsername" class="form-label">Username</label>
-    <div class="input-group has-validation">
-      <span class="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-      <div class="invalid-feedback">
-        Please choose a username.
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <label for="validationCustom03" class="form-label">City</label>
-    <input type="text" class="form-control" id="validationCustom03" required>
-    <div class="invalid-feedback">
-      Please provide a valid city.
-    </div>
-  </div>
-  <div class="col-md-3">
-    <label for="validationCustom04" class="form-label">State</label>
-    <select class="form-select" id="validationCustom04" required>
-      <option selected disabled value="">Choose...</option>
-      <option>...</option>
-    </select>
-    <div class="invalid-feedback">
-      Please select a valid state.
-    </div>
-  </div>
-  <div class="col-md-3">
-    <label for="validationCustom05" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="validationCustom05" required>
-    <div class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
-  </div>
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-      <label class="form-check-label" for="invalidCheck">
-        Agree to terms and conditions
-      </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>--%>
- 
 
 </asp:Content>
