@@ -1,0 +1,42 @@
+﻿body {
+
+}
+.header-success-card-style {
+    background-color: #229954 !important;
+}
+
+.body-success-card-style {
+    background-color: #52be80 !important;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.font-color{
+    color: whitesmoke;
+}
+
+p{
+    color: whitesmoke;
+}
+
+.card-style{
+    border-color: transparent;
+}
+
+h5
+{
+    color: whitesmoke !important;
+}
+
+.body-card
+{
+    background-color: transparent !important;
+}
+
+.header-failure-card-style {
+    background-color: #c0392b !important;
+}
+
+.body-failure-card-style {
+    background-color: #cd6155 !important;
+    border-radius: 0px 0px 5px 5px;
+}

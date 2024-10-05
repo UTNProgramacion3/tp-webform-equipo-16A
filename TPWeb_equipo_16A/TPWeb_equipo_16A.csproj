@@ -71,6 +71,8 @@
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Page1.aspx" />
     <Content Include="Pages\checkVoucher.aspx" />
+    <Content Include="Pages\priceResult.aspx" />
+    <Content Include="Content\Styles\card-styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +106,13 @@
     </Compile>
     <Compile Include="Pages\checkVoucher.aspx.designer.cs">
       <DependentUpon>checkVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\priceResult.aspx.cs">
+      <DependentUpon>priceResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\priceResult.aspx.designer.cs">
+      <DependentUpon>priceResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
