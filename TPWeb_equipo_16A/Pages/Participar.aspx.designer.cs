@@ -11,34 +11,43 @@ namespace TPWeb_equipo_16A.Pages
 {
 
 
-    public partial class WebForm3
+    public partial class Participar
     {
 
         /// <summary>
-        /// txtCodigoVoucher control.
+        /// DNI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCodigoVoucher;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DNI;
 
         /// <summary>
-        /// successAlert control.
+        /// btnClickMe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successAlert;
+        protected global::System.Web.UI.WebControls.Button btnClickMe;
 
         /// <summary>
-        /// failureAlert control.
+        /// participar_form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl failureAlert;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl participar_form;
+
+        /// <summary>
+        /// documento_validado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox documento_validado;
     }
 }

@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Main.Master" AutoEventWireup="true" CodeBehind="checkVoucher.aspx.cs" Inherits="TPWeb_equipo_16A.Pages.WebForm3"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="#" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="row">
         <div class="col"></div>
         <div class="col">
