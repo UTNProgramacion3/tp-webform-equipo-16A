@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="row">
-        <div class="col-3"></div>
+        <div class="col"></div>
         <div class="col">
             <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Codigo de Voucher</label>
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3"></div>
+        <div class="col"></div>
     </div>
 
 

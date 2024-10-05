@@ -31,6 +31,7 @@ namespace TPWeb_equipo_16A.Pages
                 failureAlert.Visible = false;
 
                 //Inyeccion de script de javascript que permite navegar a la siguiente pagina y dar el tiempo necesario para visualizar el refresco del alerta success
+                //Suplanta a función Response.Redirect(...)
 
                 ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Page1.aspx'; }, 3000);", true);
             }
