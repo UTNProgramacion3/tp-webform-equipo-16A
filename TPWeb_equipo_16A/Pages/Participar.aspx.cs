@@ -30,23 +30,24 @@ namespace TPWeb_equipo_16A.Pages
         protected void ValidarDniIngresado(object sender, EventArgs e)
         {
 
-            if (ValidarDni(dni.Text))
+            if (!ValidarDni(documento_inicial.Text))
             {
                 failureCard.Visible = true;
                 Mensaje.Text = "El DNI ingresado no es válido";
                 mensajeError.Text = "Intente nuevamente";
+                contentError.Text = "Recuerde que el DNI debe tener 8 dígitos";
                 ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Participar.aspx'; }, 3000);", true);
                 return;
             }
 
             ingreso_dni_container.Visible = false;
-            var cliente = _clienteManager.VerificarExistenciaUsuario(dni.Text);
+            var cliente = _clienteManager.VerificarExistenciaUsuario(documento_inicial.Text);
 
-            if (cliente.Id != 0 )
+            if (cliente.Documento != null )
             {
                 form_usuario_existente.Visible = true;
 
-                documentoCliente.Text = dni.Text;
+                documento_validado.Text = documento_inicial.Text;
                 documentoCliente.Enabled = false;
                 nombre.Text = cliente.Nombre;
                 apellido.Text = cliente.Apellido;
@@ -74,13 +75,17 @@ namespace TPWeb_equipo_16A.Pages
                 CP = int.Parse(codigoPostalCliente.Text)
             };
 
-            _clienteManager.Crear(nuevoCliente);
-        }
+            var res = _clienteManager.Crear(nuevoCliente);
 
-        protected void btnClickMe_Click(object sender, EventArgs e)
-        {
-            // Lógica de la función
-            Response.Write("¡Hola, se ha llamado a la función del code-behind!");
+            if(res.Id == 0)
+            {
+                failureCard.Visible = true;
+                Mensaje.Text = "Hubo un error al cargar los datos";
+                mensajeError.Text = "Intente nuevamente";
+                contentError.Text = "Si el problema persiste, por favor comuníquese con el administrador";
+                ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Participar.aspx'; }, 3000);", true);
+                return;
+            }
         }
 
         private bool ValidarDni(string dni)

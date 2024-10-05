@@ -24,6 +24,15 @@ namespace TPWeb_equipo_16A.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ingreso_dni_container;
 
         /// <summary>
+        /// documento_inicial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox documento_inicial;
+
+        /// <summary>
         /// dni control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace TPWeb_equipo_16A.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal mensajeError;
+
+        /// <summary>
+        /// contentError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal contentError;
 
         /// <summary>
         /// ingresar_datos_manual control.

@@ -6,7 +6,7 @@
 <%-- Inicio número de DNI pre-validación: --%>
   <div class="col-md-4" runat="server" id="ingreso_dni_container">
     <label for="dni" class="form-label">Ingresá documento para comenzar...</label>
-      <input type="number" class="form-control" id="documento_inicial" placeholder="xx.xxx.xxx">
+      <asp:TextBox  TextMode="Number" CssClass="form-control" ID="documento_inicial" placeholder="12345678" runat="server"/>
    <asp:Button class="btn btn-primary" ID="dni" runat="server" Text="Ingresá tu documento" OnClick="ValidarDniIngresado" />
   </div>
     <%-- Fin validación número de DNI --%>
@@ -21,8 +21,13 @@
         </div>
     </div>
     <div class="card-body body-failure-card-style">
-        <h5 class="card-title"><asp:Literal ID="mensajeError" runat="server" /></h5>
-        <p class="card-text">Por favor, vuelva a ingresar los datos para asignar el premio solicitado...</p>
+        <h5 class="card-title">
+            <asp:Literal ID="mensajeError" runat="server" />
+        </h5>
+        <p class="card-text">
+            <asp:Literal ID="contentError" runat="server" />
+
+        </p>
     </div>
 </div>
     <%-- Fin error en dni cargado --%>
@@ -31,13 +36,13 @@
 <div class="col-md-4" id="ingresar_datos_manual" runat="server">
     <div>
         <label for="documentoCliente" class="form-label">Documento</label>
-        <asp:TextBox ID="documentoCliente" runat="server" CssClass="form-control" TextMode="Number" />
+        <asp:TextBox ID="documentoCliente" runat="server" CssClass="form-control" />
     </div>
     <div>
         <label for="nombreCliente" class="form-label">Nombre</label>
         <asp:TextBox ID="nombreCliente" runat="server" CssClass="form-control" required="required" />
     </div>
-    <div>
+    <div>s
         <label for="apellidoCliente" class="form-label">Apellido</label>
         <asp:TextBox ID="apellidoCliente" runat="server" CssClass="form-control" required="required" />
     </div>
