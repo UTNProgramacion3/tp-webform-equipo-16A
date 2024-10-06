@@ -70,7 +70,6 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error.aspx" />
-    <Content Include="Pages\Page1.aspx" />
     <Content Include="Pages\checkVoucher.aspx" />
     <Content Include="Pages\Participar.aspx" />
     <Content Include="Pages\priceResult.aspx" />
@@ -102,13 +101,6 @@
     </Compile>
     <Compile Include="Pages\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page1.aspx.cs">
-      <DependentUpon>Page1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Page1.aspx.designer.cs">
-      <DependentUpon>Page1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\checkVoucher.aspx.cs">
       <DependentUpon>checkVoucher.aspx</DependentUpon>
