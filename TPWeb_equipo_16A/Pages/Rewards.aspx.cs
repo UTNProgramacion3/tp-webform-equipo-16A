@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Domain.Entities;
 using Business.Managers;
 using Business.Dtos;
+using Utils;
 
 namespace TPWeb_equipo_16A.Pages
 {
@@ -21,10 +22,26 @@ namespace TPWeb_equipo_16A.Pages
 		{
             if (!IsPostBack)
             {
-                InitializeManagers();
-                Articulos = artManager.ObtenerTodos();
-                repRepeater.DataSource = Articulos;
-                repRepeater.DataBind();
+                if(Session["VoucherValidado"] != null)
+                {
+                    InitializeManagers();
+                    Articulos = artManager.ObtenerTodos();
+
+                    foreach (var articuloDTO in Articulos)
+                    {
+                        var imagenes = imgManager.ObtenerImagenesPorArticulo(articuloDTO.Articulo.Id);
+
+                        if(imagenes != null)
+                        articuloDTO.Imagenes = Utils.ObjectConverter.ConvertToStringList(imagenes, i => i.ImagenUrl);
+                    }
+
+                    repRepeater.DataSource = Articulos;
+                    repRepeater.DataBind();
+                }
+                else
+                {
+                    Response.Redirect("~/Pages/Participar.aspx");
+                }
             }
         }
 
@@ -32,35 +49,6 @@ namespace TPWeb_equipo_16A.Pages
         {
             imgManager = new ImagenManager();
             artManager = new ArticuloManager();
-        }
-
-        protected void repRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                var articuloDto = (ArticuloDTO)e.Item.DataItem;
-
-                var carouselInner = (Literal)e.Item.FindControl("carouselInnerLiteral");
-
-                if (carouselInner != null)
-                {
-                    var imagenes = imgManager.ObtenerImagenesPorArticulo(articuloDto.Articulo.Id);
-
-                    string imagenHtml = "";
-                    foreach (var imagen in imagenes)
-                    {
-                        imagenHtml += $"<div class='carousel-item {(imagenes.First() == imagen ? "active" : "")}'>";
-                        imagenHtml += $"<img src='{imagen.ImagenUrl}' class='d-block w-100' alt='Imagen de {articuloDto.Articulo.Nombre}'>";
-                        imagenHtml += "</div>";
-                    }
-
-                    carouselInner.Text = imagenHtml;
-                }
-                else
-                {
-                    throw new Exception("El control carouselInner no fue encontrado.");
-                }
-            }
         }
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)
@@ -72,6 +60,21 @@ namespace TPWeb_equipo_16A.Pages
             Session.Add("ArticuloSeleccionado", articuloId);
 
             Response.Redirect("~/Pages/Participar.aspx");
+        }
+
+        protected void repRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var articuloDto = (ArticuloDTO)e.Item.DataItem;
+                var repImagenes = (Repeater)e.Item.FindControl("repImagenes");
+
+                if (articuloDto.Imagenes != null && articuloDto.Imagenes.Count > 0)
+                {
+                    repImagenes.DataSource = articuloDto.Imagenes;
+                    repImagenes.DataBind();
+                }
+            }
         }
     }
 }

@@ -12,5 +12,6 @@ namespace Business.Dtos
        public Articulo Articulo { get; set; }
        public Marca Marca { get; set; }
        public Categoria Categoria { get; set; }
+       public List<string> Imagenes { get; set; }
     }
 }
