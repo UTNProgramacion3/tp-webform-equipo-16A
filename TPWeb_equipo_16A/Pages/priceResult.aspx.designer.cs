@@ -15,6 +15,15 @@ namespace TPWeb_equipo_16A.Pages
     {
 
         /// <summary>
+        /// Control PRUEBA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PRUEBA;
+
+        /// <summary>
         /// Control successCard.
         /// </summary>
         /// <remarks>
