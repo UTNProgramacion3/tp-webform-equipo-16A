@@ -70,7 +70,7 @@ namespace TPWeb_equipo_16A.Pages
 
                 Session.Add("ArticuloSeleccionado", articuloId);
 
-                Response.Redirect("~/Pages/priceResult.aspx", false);
+                Response.Redirect("~/Pages/Participar.aspx", false);
             }
             catch (Exception ex)
             {
