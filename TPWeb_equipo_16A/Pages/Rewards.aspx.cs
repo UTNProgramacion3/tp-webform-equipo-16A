@@ -1,30 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Business.Managers;
 using Business.Dtos;
+using System;
+using System.Web.UI.WebControls;
+using System.Collections.Generic;
 
 namespace TPWeb_equipo_16A.Pages
 {
-	public partial class Rewards : System.Web.UI.Page
-	{
+    public partial class Rewards : System.Web.UI.Page
+    {
         protected List<ArticuloDTO> Articulos;
         protected List<Imagen> Imagenes;
         protected ImagenManager imgManager;
         protected ArticuloManager artManager;
 
         protected void Page_Load(object sender, EventArgs e)
-		{
+        {
             if (!IsPostBack)
             {
-                InitializeManagers();
-                Articulos = artManager.ObtenerTodos();
-                repRepeater.DataSource = Articulos;
-                repRepeater.DataBind();
+                if (Session["VoucherValidado"] != null)
+                {
+                    try
+                    {
+                        InitializeManagers();
+                        Articulos = artManager.ObtenerTodos();
+
+                        foreach (var articuloDTO in Articulos)
+                        {
+                            try
+                            {
+                                var imagenes = imgManager.ObtenerImagenesPorArticulo(articuloDTO.Articulo.Id);
+
+                                if (imagenes != null)
+                                    articuloDTO.Imagenes = Utils.ObjectConverter.ConvertToStringList(imagenes, i => i.ImagenUrl);
+                            }
+                            catch (Exception ex)
+                            {
+                                RedirectToErrorPage(ex);
+                            }
+                        }
+
+                        repRepeater.DataSource = Articulos;
+                        repRepeater.DataBind();
+                    }
+                    catch (Exception ex)
+                    {
+                        RedirectToErrorPage(ex);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Pages/Participar.aspx");
+                }
             }
         }
 
@@ -34,44 +61,52 @@ namespace TPWeb_equipo_16A.Pages
             artManager = new ArticuloManager();
         }
 
-        protected void repRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            try
             {
-                var articuloDto = (ArticuloDTO)e.Item.DataItem;
+                var button = (Button)sender;
+                var articuloId = button.CommandArgument;
 
-                var carouselInner = (Literal)e.Item.FindControl("carouselInnerLiteral");
+                Session.Add("ArticuloSeleccionado", articuloId);
 
-                if (carouselInner != null)
-                {
-                    var imagenes = imgManager.ObtenerImagenesPorArticulo(articuloDto.Articulo.Id);
-
-                    string imagenHtml = "";
-                    foreach (var imagen in imagenes)
-                    {
-                        imagenHtml += $"<div class='carousel-item {(imagenes.First() == imagen ? "active" : "")}'>";
-                        imagenHtml += $"<img src='{imagen.ImagenUrl}' class='d-block w-100' alt='Imagen de {articuloDto.Articulo.Nombre}'>";
-                        imagenHtml += "</div>";
-                    }
-
-                    carouselInner.Text = imagenHtml;
-                }
-                else
-                {
-                    throw new Exception("El control carouselInner no fue encontrado.");
-                }
+                Response.Redirect("~/Pages/priceResult.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                RedirectToErrorPage(ex);
             }
         }
 
-        protected void btnSeleccionar_Click(object sender, EventArgs e)
+        protected void repRepeater_ItemDataBound(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
         {
-            var button = (Button)sender;
+            try
+            {
+                if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+                {
+                    var articuloDto = (ArticuloDTO)e.Item.DataItem;
+                    var repImagenes = (Repeater)e.Item.FindControl("repImagenes");
 
-            var articuloId = button.CommandArgument;
-
-            Session.Add("ArticuloSeleccionado", articuloId);
-
-            Response.Redirect("~/Pages/Participar.aspx");
+                    if (articuloDto.Imagenes != null && articuloDto.Imagenes.Count > 0)
+                    {
+                        repImagenes.DataSource = articuloDto.Imagenes;
+                        repImagenes.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                RedirectToErrorPage(ex);
+            }
         }
+
+        private void RedirectToErrorPage(Exception ex)
+        {
+            Session["ErrorMessage"] = ex.Message;
+            Session["StackTrace"] = ex.StackTrace;
+            Response.Redirect("~/Pages/Error.aspx");
+        }
+
+
     }
 }
