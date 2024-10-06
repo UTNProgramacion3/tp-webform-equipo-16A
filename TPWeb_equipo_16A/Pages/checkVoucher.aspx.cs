@@ -30,6 +30,7 @@ namespace TPWeb_equipo_16A.Pages
                 Alert.InnerText = "El codigo de Voucher fue asignado correctamente";
                 Alert.Attributes.Add("class", "alert alert-success");
                 Session.Add("VoucherValidado", codigo);
+                Alert.Visible = true;
                 //Inyeccion de script de javascript que permite navegar a la siguiente pagina y dar el tiempo necesario para visualizar el refresco del alerta success
                 //Suplanta a función Response.Redirect(...)
 
