@@ -13,11 +13,8 @@
             </div>
             <div>
                 <asp:Button Text="Cargar" class="btn btn-primary" OnClick="btnCargar_Click" runat="server" />
-                <div id="successAlert" runat="server" class="alert alert-success" role="alert" visible="false">
+                <div id="Alert" runat="server" class="alert" role="alert" visible="false">
                     El codigo de Voucher fue asignado correctamente
-                </div>
-                <div id="failureAlert" runat="server" class="alert alert-danger" role="alert" visible="false">
-                    El codigo de Voucher es invalido o ya fue utilizado
                 </div>
             </div>
         </div>
