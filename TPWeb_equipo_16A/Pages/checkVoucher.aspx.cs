@@ -29,11 +29,11 @@ namespace TPWeb_equipo_16A.Pages
             {
                 successAlert.Visible = true;
                 failureAlert.Visible = false;
-
+                Session.Add("VoucherValidado", codigo);
                 //Inyeccion de script de javascript que permite navegar a la siguiente pagina y dar el tiempo necesario para visualizar el refresco del alerta success
                 //Suplanta a función Response.Redirect(...)
 
-                ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Page1.aspx'; }, 3000);", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Rewards.aspx'; }, 3000);", true);
             }
             else
             {

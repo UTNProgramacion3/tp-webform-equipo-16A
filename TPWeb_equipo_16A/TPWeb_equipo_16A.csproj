@@ -71,6 +71,7 @@
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Page1.aspx" />
     <Content Include="Pages\checkVoucher.aspx" />
+    <Content Include="Pages\Participar.aspx" />
     <Content Include="Pages\priceResult.aspx" />
     <Content Include="Content\Styles\card-styles.css" />
     <Content Include="Pages\Rewards.aspx" />
@@ -108,6 +109,13 @@
     <Compile Include="Pages\checkVoucher.aspx.designer.cs">
       <DependentUpon>checkVoucher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Participar.aspx.cs">
+      <DependentUpon>Participar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Participar.aspx.designer.cs">
+      <DependentUpon>Participar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\priceResult.aspx.cs">
       <DependentUpon>priceResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,7 +143,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
