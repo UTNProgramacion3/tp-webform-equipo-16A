@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correo de Confirmación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Fondo azul claro */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; /* Fondo blanco para la carta */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333333;
+            font-size: 24px;
+        }
+
+        h2 {
+            color: #555555;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- H1 dinámico -->
+        <h1>¡Bienvenido a nuestro sorteo, {{voucher}}!</h1>
+
+        <!-- H2 con el nombre del usuario -->
+        <h2>{{nombre}} ¡Ya estás participando en nuestro sorteo por {{articulo}}!</h2>
+
+        <!-- Cuerpo de la carta -->
+        <p>
+            Gracias por registrarte en nuestro sorteo. Estás participando por la oportunidad de ganar fantásticos premios. Nos pondremos en contacto contigo si resultas ganador.
+        </p>
+        <p>
+            ¡Te deseamos mucha suerte!
+        </p>
+
+        <p>Saludos cordiales,<br>El equipo de Sorteos</p>
+    </div>
+</body>
+</html>
