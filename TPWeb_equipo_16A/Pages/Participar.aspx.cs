@@ -1,5 +1,6 @@
 ﻿using Business.Interfaces;
 using Business.Managers;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,19 @@ namespace TPWeb_equipo_16A.Pages
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ingreso_dni_container.Visible = true;
-            ingresar_datos_manual.Visible = false;
-            documento_validado.Enabled = false;
-            form_usuario_existente.Visible = false;
+            var voucherValidado = Session["VoucherValidado"] as string;
+            if (voucherValidado != null)
+            {
+                ingreso_dni_container.Visible = true;
+                ingresar_datos_manual.Visible = false;
+                documento_validado.Enabled = false;
+                form_usuario_existente.Visible = false;
+            }
+            else
+            {
+                Session.Abandon();
+                Response.Redirect("~/Pages/checkVoucher.aspx");
+            }
         }
 
         protected void ValidarDniIngresado(object sender, EventArgs e)
@@ -99,7 +109,9 @@ namespace TPWeb_equipo_16A.Pages
                 return;
             }
 
-          
+            Session.Add("DocumentoCliente", res.Documento);
+            Response.Redirect("~/Pages/priceResult.aspx");
+
         }
 
         private bool ValidarDni(string dni)

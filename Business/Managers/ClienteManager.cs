@@ -66,7 +66,21 @@ namespace Business.Managers
                 return new Cliente();
             }
 
-            return entity;
+            return ObtenerUltimoCliente();
+        }
+
+        private Cliente ObtenerUltimoCliente()
+        {
+            string query = "SELECT TOP 1 * FROM Clientes ORDER BY Id DESC";
+
+            var res = _dbManager.ExecuteQuery(query);
+
+            if (res.Rows.Count == 0)
+            {
+                return new Cliente();
+            }
+
+            return _mapper.MapFromRow(res.Rows[0]);
         }
 
         public bool Eliminar(int id)

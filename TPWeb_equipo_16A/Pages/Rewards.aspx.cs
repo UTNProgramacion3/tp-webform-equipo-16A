@@ -71,7 +71,7 @@ namespace TPWeb_equipo_16A.Pages
 
             Session.Add("ArticuloSeleccionado", articuloId);
 
-            Response.Redirect("~/Pages/priceResult.aspx");
+            Response.Redirect("~/Pages/Participar.aspx");
         }
     }
 }
