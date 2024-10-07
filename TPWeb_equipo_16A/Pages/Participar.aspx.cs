@@ -27,18 +27,18 @@ namespace TPWeb_equipo_16A.Pages
         {
             _voucherValidado = Session["VoucherValidado"]?.ToString();
 
-            if (_voucherValidado != null)
-            {
-                ingreso_dni_container.Visible = true;
-                ingresar_datos_manual.Visible = false;
-                documento_validado.Enabled = false;
-                form_usuario_existente.Visible = false;
-            }
-            else
+            if (_voucherValidado == null)
             {
                 Session.Abandon();
                 Response.Redirect("~/Pages/checkVoucher.aspx");
             }
+
+                ingreso_dni_container.Visible = true;
+                ingresar_datos_manual.Visible = false;
+                documento_validado.Enabled = false;
+                form_usuario_existente.Visible = false;
+
+                Session.Add("Resultado", false);
         }
 
         protected void ValidarDniIngresado(object sender, EventArgs e)
@@ -70,7 +70,12 @@ namespace TPWeb_equipo_16A.Pages
                 ciudad.Text = cliente.Ciudad;
                 codigoPostal.Text = cliente.CP.ToString();
 
-                _voucherManager.CompletarVoucher(Session["VoucherValidado"].ToString(), cliente.Id, Session["ArticuloSeleccionado"].ToString());
+                 var res = _voucherManager.CompletarVoucher(Session["VoucherValidado"].ToString(), cliente.Id, Session["ArticuloSeleccionado"].ToString());
+
+                if (res)
+                {
+                    Session["Resultado"] = true;
+                }
             }
             else
             {
@@ -119,8 +124,11 @@ namespace TPWeb_equipo_16A.Pages
 
             if (registro)
             {
+                Session["Resultado"] = true;
             Session.Add("DocumentoCliente", res.Documento);
+            Session["Resultado"] = true;
             Response.Redirect("~/Pages/priceResult.aspx");
+
             }
             else
             {

@@ -11,12 +11,16 @@ namespace TPWeb_equipo_16A.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {   
+            var voucherValidado = Session["VoucherValidado"]?.ToString();
+            if (voucherValidado == null)
+            {
+                Response.Redirect("/Pages/checkVoucher.aspx");
+                Session.Abandon();
+            }
 
-            //Traer resultado desde la pagina de carga de datos
+            var resultado = Session["Resultado"].ToString();
 
-            bool response = true;      /* <------Ingresar en esta linea */
-
-            if(response)
+            if (resultado == "True")
             {
                 successCard.Visible = true;
                 failureCard.Visible = false;
