@@ -13,7 +13,7 @@ using System.Data;
 
 namespace Business.Managers
 {
-    public class VoucherManager : IVoucher
+    public class VoucherManager : IVoucherManager
     {
         private DBManager _dbManager;
 
@@ -78,19 +78,15 @@ namespace Business.Managers
             return true;
         }
 
-        public bool CompletarVoucher()
+        public bool CompletarVoucher(string codVoucher, int idCliente, int idArticulo)
         {
 
-            string codigoVoucher = "Codigo02";
-            string idCliente = "1";
             DateTime fecha = DateTime.Now;
-            string idArticulo = "2";
-
-            string query = "update Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo Where CodigoVoucher = @codigoVoucher";
+            string query = "update Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo Where CodigoVoucher = @codVoucher";
 
             SqlParameter[] parametro = new SqlParameter[]
             {
-                new SqlParameter("@codigoVoucher", codigoVoucher),
+                new SqlParameter("@codigoVoucher", codVoucher),
                 new SqlParameter("@idCliente", idCliente),
                 new SqlParameter("@idArticulo", idArticulo)
             };
@@ -101,8 +97,6 @@ namespace Business.Managers
 
             return true;
         }
-
-
     }
 
 

@@ -45,7 +45,7 @@
     <Compile Include="Interfaces\IClienteManager.cs" />
     <Compile Include="Interfaces\ICrudRepository.cs" />
     <Compile Include="Interfaces\IImagenManager.cs" />
-    <Compile Include="Interfaces\IVoucher.cs" />
+    <Compile Include="Interfaces\IVoucherManager.cs" />
     <Compile Include="Managers\ArticuloManager.cs" />
     <Compile Include="Managers\CategoriaManager.cs" />
     <Compile Include="Managers\ClienteManager.cs" />

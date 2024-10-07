@@ -7,7 +7,7 @@ using TPWeb_equipo_16A.Domain.Entities;
 namespace Business.Interfaces
 
 {
-    public interface IVoucher
+    public interface IVoucherManager
     {
         bool VerificarCodigoVoucher(string codigo);
 
@@ -15,6 +15,6 @@ namespace Business.Interfaces
 
         bool Eliminar(string v);
 
-        bool CompletarVoucher();
+        bool CompletarVoucher(string codVoucher, int idCliente, int idArticulo);
     }
 }

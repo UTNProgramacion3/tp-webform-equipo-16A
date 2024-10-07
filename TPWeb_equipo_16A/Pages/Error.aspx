@@ -39,11 +39,13 @@
             <p>We're sorry, but an unexpected error has occurred. Please try again later.</p>
 
             <!-- Mostramos el mensaje de error y el StackTrace solo si están presentes -->
+         <asp:div ID="errorContainer" CssClass="stack-trace">
             <asp:Literal ID="litErrorMessage" runat="server" />
-            <asp:Literal ID="litStackTrace" runat="server" CssClass="stack-trace" />
+            <asp:Literal ID="litStackTrace" runat="server" />
+         </asp:div>
 
             <br />
-            <a href="~/Pages/Participar.aspx">Go back</a>
+            <a href="/Pages/checkVoucher.aspx">Go back</a>
         </div>
 
 </asp:Content>
