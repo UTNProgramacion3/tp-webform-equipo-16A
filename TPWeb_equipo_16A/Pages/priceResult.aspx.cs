@@ -30,6 +30,7 @@ namespace TPWeb_equipo_16A.Pages
                 successCard.Visible = false;
                 failureCard.Visible = true;
             }
+            Session.Abandon();
             ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'checkVoucher.aspx'; }, 8000);", true);
 
         }
