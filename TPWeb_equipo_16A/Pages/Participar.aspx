@@ -81,31 +81,31 @@
             <h2>Detalles del Cliente</h2>
             <div class="mb-3">
                 <label for="documento" class="form-label">Documento</label>
-                <asp:TextBox ID="documento_validado" runat="server" CssClass="form-control" Text='<%# Bind("Documento") %>'  />
+                <asp:TextBox ID="documento_validado" runat="server" CssClass="form-control" Enabled="false" Text='<%# Bind("Documento") %>'  />
             </div>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
-                <asp:TextBox ID="nombre" runat="server" CssClass="form-control" Text='<%# Bind("Nombre") %>'  />
+                <asp:TextBox ID="nombre" runat="server" CssClass="form-control" Text='<%# Bind("Nombre") %>' Enabled="false" />
             </div>
             <div class="mb-3">
                 <label for="apellido" class="form-label">Apellido</label>
-                <asp:TextBox ID="apellido" runat="server" CssClass="form-control" Text='<%# Bind("Apellido") %>'  />
+                <asp:TextBox ID="apellido" runat="server" CssClass="form-control" Text='<%# Bind("Apellido") %>' Enabled="false" />
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <asp:TextBox ID="email" runat="server" CssClass="form-control" Text='<%# Bind("Email") %>'  />
+                <asp:TextBox ID="email" runat="server" CssClass="form-control" Text='<%# Bind("Email") %>' Enabled="false" />
             </div>
             <div class="mb-3">
                 <label for="direccion" class="form-label">Dirección</label>
-                <asp:TextBox ID="direccion" runat="server" CssClass="form-control" Text='<%# Bind("Direccion") %>'  />
+                <asp:TextBox ID="direccion" runat="server" CssClass="form-control" Text='<%# Bind("Direccion") %>' Enabled="false" />
             </div>
             <div class="mb-3">
                 <label for="ciudad" class="form-label">Ciudad</label>
-                <asp:TextBox ID="ciudad" runat="server" CssClass="form-control" Text='<%# Bind("Ciudad") %>'  />
+                <asp:TextBox ID="ciudad" runat="server" CssClass="form-control" Text='<%# Bind("Ciudad") %>' Enabled="false" />
             </div>
             <div class="mb-3">
                 <label for="codigoPostal" class="form-label">Código Postal</label>
-                <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" Text='<%# Bind("CodigoPostal") %>'  />
+                <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" Text='<%# Bind("CodigoPostal") %>' Enabled="false"  />
             </div>
             <div class="col-12">
     <asp:Button ID="confirmarYParticipar" runat="server" Text="Participar!" CssClass="btn btn-primary" OnClick="ConfirmarDatosYParticipar" />

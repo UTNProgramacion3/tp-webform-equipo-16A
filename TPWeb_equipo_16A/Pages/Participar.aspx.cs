@@ -15,15 +15,19 @@ namespace TPWeb_equipo_16A.Pages
     public partial class Participar : System.Web.UI.Page
     {
         private readonly IClienteManager _clienteManager;
+        private readonly IVoucherManager _voucherManager;
+        private string _voucherValidado;
 
         public Participar()
         {
             _clienteManager = new ClienteManager();
+            _voucherManager = new VoucherManager();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            var voucherValidado = Session["VoucherValidado"] as string;
-            if (voucherValidado != null)
+            _voucherValidado = Session["VoucherValidado"]?.ToString();
+
+            if (_voucherValidado != null)
             {
                 ingreso_dni_container.Visible = true;
                 ingresar_datos_manual.Visible = false;
@@ -65,6 +69,8 @@ namespace TPWeb_equipo_16A.Pages
                 direccion.Text = cliente.Direccion;
                 ciudad.Text = cliente.Ciudad;
                 codigoPostal.Text = cliente.CP.ToString();
+
+                _voucherManager.CompletarVoucher(Session["VoucherValidado"].ToString(), cliente.Id, Session["ArticuloSeleccionado"].ToString());
             }
             else
             {
@@ -108,9 +114,18 @@ namespace TPWeb_equipo_16A.Pages
                 ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Participar.aspx'; }, 3000);", true);
                 return;
             }
+            
+            var registro = _voucherManager.CompletarVoucher(Session["VoucherValidado"].ToString(), res.Id, Session["ArticuloSeleccionado"].ToString());
 
+            if (registro)
+            {
             Session.Add("DocumentoCliente", res.Documento);
             Response.Redirect("~/Pages/priceResult.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Pages/Error.aspx");
+            }
 
         }
 

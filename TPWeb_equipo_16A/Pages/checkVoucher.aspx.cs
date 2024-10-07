@@ -27,19 +27,26 @@ namespace TPWeb_equipo_16A.Pages
 
             if (res)
             {
-                successAlert.Visible = true;
-                failureAlert.Visible = false;
+                Alert.InnerText = "El codigo de Voucher fue asignado correctamente";
+                Alert.Attributes.Add("class", "alert alert-success");
                 Session.Add("VoucherValidado", codigo);
+                Alert.Visible = true;
                 //Inyeccion de script de javascript que permite navegar a la siguiente pagina y dar el tiempo necesario para visualizar el refresco del alerta success
                 //Suplanta a función Response.Redirect(...)
 
-                ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = 'Rewards.aspx'; }, 3000);", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "redirectScript", "setTimeout(function(){ window.location.href = '/Pages/Rewards.aspx'; }, 3000);", true);
             }
             else
             {
-                failureAlert.Visible = true;
-                successAlert.Visible = false;
+                Alert.Attributes.Add("class", "alert alert-danger");
+                Alert.InnerText = "El codigo de Voucher es invalido o ya fue utilizado";
+                Alert.Visible = true;
+
+                string script = "setTimeout(function () { document.getElementById('" + Alert.ClientID + "').style.display = 'none'; }, 3000);";
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "HideAlert", script, true);
             }
+
         }
 
     }
