@@ -80,7 +80,7 @@ namespace Business.Managers
             if (res == 0)
                 return new Marca();
 
-            MessageBox.Show("Marca agregada correctamente");
+            //MessageBox.Show("Marca agregada correctamente");
             return m;
         }
 
@@ -90,6 +90,7 @@ namespace Business.Managers
 
             SqlParameter[] parametro = new SqlParameter[]
             {
+                new SqlParameter("@id", m.Id),
                 new SqlParameter("@descripcion", m.Descripcion)
             };
 
@@ -97,7 +98,7 @@ namespace Business.Managers
 
             if(res == 0) return false;
             
-            MessageBox.Show("Marca modificada correctamente");
+            ///MessageBox.Show("Marca modificada correctamente");
             return true;
         }
 

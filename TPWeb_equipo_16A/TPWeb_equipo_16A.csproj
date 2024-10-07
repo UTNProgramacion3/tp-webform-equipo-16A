@@ -69,7 +69,12 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Pages\Default.aspx" />
-    <Content Include="Pages\Page1.aspx" />
+    <Content Include="Pages\Error.aspx" />
+    <Content Include="Pages\checkVoucher.aspx" />
+    <Content Include="Pages\Participar.aspx" />
+    <Content Include="Pages\priceResult.aspx" />
+    <Content Include="Content\Styles\card-styles.css" />
+    <Content Include="Pages\Rewards.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +88,13 @@
     <Compile Include="Pages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,12 +102,33 @@
     <Compile Include="Pages\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Page1.aspx.cs">
-      <DependentUpon>Page1.aspx</DependentUpon>
+    <Compile Include="Pages\checkVoucher.aspx.cs">
+      <DependentUpon>checkVoucher.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Page1.aspx.designer.cs">
-      <DependentUpon>Page1.aspx</DependentUpon>
+    <Compile Include="Pages\checkVoucher.aspx.designer.cs">
+      <DependentUpon>checkVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Participar.aspx.cs">
+      <DependentUpon>Participar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Participar.aspx.designer.cs">
+      <DependentUpon>Participar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\priceResult.aspx.cs">
+      <DependentUpon>priceResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\priceResult.aspx.designer.cs">
+      <DependentUpon>priceResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Rewards.aspx.cs">
+      <DependentUpon>Rewards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Rewards.aspx.designer.cs">
+      <DependentUpon>Rewards.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,8 +143,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{7c7a66bf-e54e-400d-a57a-af8166f9d86b}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{b0cf38ad-fe0e-478c-8e3f-32cc601d088d}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{e880ce72-8061-45e8-a206-8dd187d95e66}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{a5cce161-8385-419a-93ca-48b1df918847}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

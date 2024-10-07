@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Interfaces\IMapper.cs" />
     <Compile Include="Mapper.cs" />
+    <Compile Include="ObjectConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
