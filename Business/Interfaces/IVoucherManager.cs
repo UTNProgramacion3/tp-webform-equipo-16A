@@ -15,6 +15,6 @@ namespace Business.Interfaces
 
         bool Eliminar(string v);
 
-        bool CompletarVoucher(string codVoucher, int idCliente, int idArticulo);
+        bool CompletarVoucher(string codVoucher, int idCliente, string idArticulo);
     }
 }

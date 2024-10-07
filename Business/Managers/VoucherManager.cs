@@ -78,11 +78,11 @@ namespace Business.Managers
             return true;
         }
 
-        public bool CompletarVoucher(string codVoucher, int idCliente, int idArticulo)
+        public bool CompletarVoucher(string codVoucher, int idCliente, string idArticulo)
         {
 
             DateTime fecha = DateTime.Now;
-            string query = "update Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo Where CodigoVoucher = @codVoucher";
+            string query = "update Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo Where CodigoVoucher = @codigoVoucher";
 
             SqlParameter[] parametro = new SqlParameter[]
             {

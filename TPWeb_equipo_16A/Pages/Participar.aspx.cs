@@ -16,16 +16,17 @@ namespace TPWeb_equipo_16A.Pages
     {
         private readonly IClienteManager _clienteManager;
         private readonly IVoucherManager _voucherManager;
-        private readonly string _voucherValidado;
+        private string _voucherValidado;
 
         public Participar()
         {
             _clienteManager = new ClienteManager();
             _voucherManager = new VoucherManager();
-            _voucherValidado = Session["VoucherValidado"].ToString();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            _voucherValidado = Session["VoucherValidado"]?.ToString();
+
             if (_voucherValidado != null)
             {
                 ingreso_dni_container.Visible = true;
@@ -68,6 +69,8 @@ namespace TPWeb_equipo_16A.Pages
                 direccion.Text = cliente.Direccion;
                 ciudad.Text = cliente.Ciudad;
                 codigoPostal.Text = cliente.CP.ToString();
+
+                _voucherManager.CompletarVoucher(Session["VoucherValidado"].ToString(), cliente.Id, Session["ArticuloSeleccionado"].ToString());
             }
             else
             {
@@ -112,7 +115,7 @@ namespace TPWeb_equipo_16A.Pages
                 return;
             }
             
-            var registro = _voucherManager.CompletarVoucher(_voucherValidado, res.Id, 1);
+            var registro = _voucherManager.CompletarVoucher(Session["VoucherValidado"].ToString(), res.Id, Session["ArticuloSeleccionado"].ToString());
 
             if (registro)
             {
